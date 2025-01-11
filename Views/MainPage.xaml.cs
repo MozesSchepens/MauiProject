@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using MauiProject.Models;
 using MauiProject.Services;
 using System.Threading.Tasks;
+using MauiProject.Views;
 
 namespace MauiProject
 {
