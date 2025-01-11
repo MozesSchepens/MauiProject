@@ -1,0 +1,20 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiProject.Views.AddEventPage">
+    <StackLayout Padding="20">
+        <Label Text="Nieuw Event Toevoegen"
+               FontSize="24"
+               HorizontalOptions="Center"
+               Margin="0,10" />
+
+        <Entry x:Name="NameEntry" Placeholder="Event Naam" />
+        <DatePicker x:Name="DatePicker" />
+        <Entry x:Name="LocationEntry" Placeholder="Locatie" />
+        <Editor x:Name="DescriptionEditor" Placeholder="Beschrijving" HeightRequest="100" />
+
+        <Button Text="Opslaan"
+                Clicked="OnSaveClicked"
+                HorizontalOptions="Center"
+                Margin="0,20" />
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,35 @@
+﻿using Microsoft.Maui.Controls;
+using MauiProject.Models;
+using MauiProject.Services;
+using System.Collections.ObjectModel;
+
+namespace MauiProject.Views
+{
+    public partial class AddEventPage : ContentPage
+    {
+        private readonly DatabaseService _databaseService;
+        private readonly ObservableCollection<Event> _events;
+
+        public AddEventPage(DatabaseService databaseService, ObservableCollection<Event> events)
+        {
+            InitializeComponent();
+            _databaseService = databaseService;
+            _events = events;
+        }
+
+        private async void OnSaveClicked(object sender, EventArgs e)
+        {
+            var newEvent = new Event
+            {
+                Name = NameEntry.Text,
+                Date = DatePicker.Date,
+                Location = LocationEntry.Text,
+                Description = DescriptionEditor.Text
+            };
+
+            await _databaseService.SaveEventAsync(newEvent);
+            _events.Add(newEvent);
+            await Navigation.PopAsync();
+        }
+    }
+}
