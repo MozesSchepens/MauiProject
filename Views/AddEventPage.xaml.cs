@@ -28,7 +28,7 @@ namespace MauiProject.Views
         {
             var newEvent = new Event
             {
-                Name = NameEntry.Text,
+                Naam = NameEntry.Text,
                 Date = DatePicker.Date,
                 Location = LocationEntry.Text,
                 Description = DescriptionEditor.Text
