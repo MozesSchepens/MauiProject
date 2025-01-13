@@ -5,7 +5,7 @@
     <Application.MainPage>
         <NavigationPage>
             <x:Arguments>
-                <Mainpage />
+                <views:MainPage />
             </x:Arguments>
         </NavigationPage>
     </Application.MainPage>
