@@ -10,6 +10,13 @@ namespace MauiProject.Views
         private readonly DatabaseService _databaseService;
         private readonly ObservableCollection<Event> _events;
 
+        // Default constructor (nodig voor de XAML-compiler)
+        public AddEventPage()
+        {
+            InitializeComponent();
+        }
+
+        // Constructor met parameters
         public AddEventPage(DatabaseService databaseService, ObservableCollection<Event> events)
         {
             InitializeComponent();

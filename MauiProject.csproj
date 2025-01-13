@@ -64,13 +64,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\AddEventPage.xaml.cs">
+	  <Compile Update="views\AddEventPage.xaml.cs">
 	    <DependentUpon>AddEventPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\AddEventPage.xaml">
+	  <MauiXaml Update="views\AddEventPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
