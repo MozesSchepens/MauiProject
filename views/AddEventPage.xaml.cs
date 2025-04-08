@@ -28,13 +28,13 @@ namespace MauiProject.Views
         {
             var newEvent = new Event
             {
-                Name = NameEntry.Text,
+                Title = NameEntry.Text,
                 Date = DatePicker.Date,
                 Location = LocationEntry.Text,
                 Description = DescriptionEditor.Text
             };
 
-            await _databaseService.SaveEventAsync(newEvent);
+            await _databaseService.AddEventAsync(newEvent);
             _events.Add(newEvent);
             await Navigation.PopAsync();
         }

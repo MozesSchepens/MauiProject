@@ -1,11 +1,8 @@
-﻿using Microsoft.Maui.Controls;
-using System.Collections.ObjectModel;
-using MauiProject.Models;
+﻿using MauiProject.Models;
 using MauiProject.Services;
-using System.Threading.Tasks;
-using MauiProject.Views;
+using System.Collections.ObjectModel;
 
-namespace MauiProject
+namespace MauiProject.Views
 {
     public partial class MainPage : ContentPage
     {
@@ -17,21 +14,36 @@ namespace MauiProject
             InitializeComponent();
             _databaseService = new DatabaseService();
             Events = new ObservableCollection<Event>();
+            BindingContext = this;
+
+            if (UserService.CurrentUserRole == UserRole.User)
+                AddButton.IsVisible = false;
+
             LoadEvents();
         }
 
         private async void LoadEvents()
         {
+            Events.Clear();
             var events = await _databaseService.GetEventsAsync();
             foreach (var ev in events)
-            {
                 Events.Add(ev);
-            }
         }
 
         private async void OnAddEventClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AddEventPage(_databaseService, Events));
+            // Simulatie van toevoegen
+            var newEvent = new Event
+            {
+                Title = "Nieuw Event",
+                Date = DateTime.Now.AddDays(1),
+                Location = "Locatie X",
+                Description = "Beschrijving",
+                TodoList = new() { "Voorbereiden" },
+                Shifts = new() { "Shift 1" }
+            };
+            await _databaseService.AddEventAsync(newEvent);
+            Events.Add(newEvent);
         }
     }
 }

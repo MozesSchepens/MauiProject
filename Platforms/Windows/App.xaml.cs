@@ -1,13 +1,12 @@
-﻿using Microsoft.Maui;
-using Microsoft.UI.Xaml;
-
+﻿using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 namespace MauiProject.WinUI;
 
 public partial class App : MauiWinUIApplication
 {
     public App()
     {
-        this.InitializeComponent();
+        // GEEN InitializeComponent hier
     }
 
     protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();

@@ -11,7 +11,7 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <ItemGroup>
-    <MauiXaml Update="views\AddEventPage.xaml">
+    <MauiXaml Update="Views\AddEventPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

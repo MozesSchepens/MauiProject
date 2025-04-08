@@ -1,31 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using SQLite;
-using MauiProject.Models;
-using System.IO;
+﻿using MauiProject.Models;
 
 namespace MauiProject.Services
 {
     public class DatabaseService
     {
-        private readonly SQLiteAsyncConnection _database;
-
-        public DatabaseService()
+        public async Task<List<Event>> GetEventsAsync()
         {
-            var dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Mauievent.db");
-            _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<Event>().Wait();
+            await Task.Delay(100); // Simuleer vertraging
+            return new List<Event>
+            {
+                new Event
+                {
+                    Title = "Nieuwjaarsreceptie",
+                    Date = DateTime.Today,
+                    Location = "Bedrijfshal",
+                    Description = "Samenkomst met catering",
+                    TodoList = new() { "Catering regelen", "Drank inkopen" },
+                    Shifts = new() { "Opbouw 16u", "Afbraak 22u" }
+                }
+            };
         }
 
-        public Task<List<Event>> GetEventsAsync()
+        public async Task AddEventAsync(Event newEvent)
         {
-            return _database.Table<Event>().ToListAsync();
-        }
-
-        public Task<int> SaveEventAsync(Event ev)
-        {
-            return _database.InsertAsync(ev);
+            await Task.Delay(100); // Simulatie
         }
     }
 }
